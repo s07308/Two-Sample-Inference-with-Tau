@@ -2,7 +2,7 @@
 
 The R code in this repository contains three functions to do two-sample test in different scenarios. 
 
-### tau_fixed
+### tau_fixed()
 Conduct the two-sample test with tau in RCT. <br>
 
 #### Arguments
@@ -21,7 +21,7 @@ p.value.fixed: p-value under H_0: F_x = F_y <br>
 p.value.0: p-value under H_0: tau_b = 0 <br>
 ci: the 95% confidence interval of tau_b <br>
 
-### tau_random
+### tau_random()
 Conduct the two-sample test with tau in observational study <br>
 
 #### Arguments
@@ -39,7 +39,7 @@ p.value.random: p-value under H_0: F_x = F_y <br>
 p.value.0: p-value under H_0: tau_b = 0 <br>
 ci: the 95% confidence interval of tau_b <br>
 
-### tau_ipcw
+### tau_ipcw()
 Estimate tau_b when the observatiosn are subject to right-censoring. <br>
 
 #### Arguments
