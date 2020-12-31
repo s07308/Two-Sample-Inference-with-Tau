@@ -13,18 +13,18 @@ Conduct the two-sample test with &tau; in RCT. <br>
 
 #### Value
 A list containing the following components <br>
-`tau`: the estimated value of tau<sub>b</sub> <br>
-`var.tau.fixed`: the variance of tau under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`var.tau.0`: the variance of tau undet H<sub>0</sub>: tau<sub>b</sub> = 0 <br>
-`var.tau.general`: the variance of tau in general <br>
+`tau`: the estimated value of &tau;<sub>b</sub> <br>
+`var.tau.fixed`: the variance of &tau; under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
+`var.tau.0`: the variance of &tau; undet H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
+`var.tau.general`: the variance of &tau; in general <br>
 `z.score.fixed`: the z-score under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`z.score.fixed`: the z_score under H<sub>0</sub>: tau<sub>b</sub> = 0 <br>
+`z.score.fixed`: the z-score under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
 `p.value.fixed`: p-value under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`p.value.0`: p-value underH<sub>0</sub>: tau<sub>b</sub> = 0 <br>
-`ci`: the 95% confidence interval of tau<sub>b</sub> <br>
+`p.value.0`: p-value underH<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
+`ci`: the 95% confidence interval of &tau;<sub>b</sub> <br>
 
 ### tau_random()
-Conduct the two-sample test with tau in observational study <br>
+Conduct the two-sample test with &tau; in observational study <br>
 
 #### Arguments
 `x`: a non-empty numeric vector vector of data <br>
@@ -34,17 +34,17 @@ Conduct the two-sample test with tau in observational study <br>
 
 #### Value
 A list containing the following components <br>
-`tau`: the estimated value of tau<sub>b</sub> <br>
-`var.tau.random`: the variance of tau under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`var.tau`: the variance of tau in general <br>
+`tau`: the estimated value of &tau;<sub>b</sub> <br>
+`var.tau.random`: the variance of &tau; under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
+`var.tau`: the variance of &tau; in general <br>
 `z.score.random`: the z-score under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`z.score.0`: the z_score under H<sub>0</sub>: tau<sub>b</sub> = 0 <br>
+`z.score.0`: the z-score under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
 `p.value.random`: p-value under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`p.value.0`: p-value under H<sub>0</sub>: tau<sub>b</sub> = 0 <br>
-`ci`: the 95% confidence interval of tau<sub>b</sub> <br>
+`p.value.0`: p-value under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
+`ci`: the 95% confidence interval of &tau;<sub>b</sub> <br>
 
 ### tau_ipcw()
-Estimate tau<sub>b</sub> when the observatiosn are subject to right-censoring. <br>
+Estimate &tau;<sub>b</sub> when the observatiosn are subject to right-censoring. <br>
 
 #### Arguments
 `Y1`: follow-up time <br>
@@ -54,4 +54,4 @@ Estimate tau<sub>b</sub> when the observatiosn are subject to right-censoring. <
 #### Details
 
 #### Value
-the estimaed value of tau<sub>b</sub> <br>
+the estimaed value of &tau;<sub>b</sub> <br>
