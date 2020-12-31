@@ -9,8 +9,6 @@ Conduct the two-sample test with &tau; in RCT. <br>
 `x`: a non-empty numeric vector vector of data <br>
 `y`: a non-empty numeric vector vector of data <br>
 
-#### Details
-
 #### Value
 A list containing the following components <br>
 `tau`: the estimated value of &tau;<sub>b</sub> <br>
@@ -30,8 +28,6 @@ Conduct the two-sample test with &tau; in observational study <br>
 `x`: a non-empty numeric vector vector of data <br>
 `y`: a non-empty numeric vector vector of data <br>
 
-#### Details
-
 #### Value
 A list containing the following components <br>
 `tau`: the estimated value of &tau;<sub>b</sub> <br>
@@ -50,8 +46,6 @@ Estimate &tau;<sub>b</sub> when the observatiosn are subject to right-censoring.
 `Y1`: follow-up time <br>
 `delta`: the status indicator. Typically, 0: censored, 1: died <br>
 `X1`: group indicator, coded as 0 and 1 <br>
-
-#### Details
 
 #### Value
 the estimaed value of &tau;<sub>b</sub> <br>
