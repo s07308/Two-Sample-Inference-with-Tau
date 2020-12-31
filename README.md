@@ -14,9 +14,9 @@ Conduct the two-sample test with &tau; in RCT. <br>
 #### Value
 A list containing the following components <br>
 `tau`: the estimated value of &tau;<sub>b</sub> <br>
-`var.tau.fixed`: the variance of &tau; under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`var.tau.0`: the variance of &tau; undet H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
-`var.tau.general`: the variance of &tau; in general <br>
+`var.tau.fixed`: the variance of the estimator of &tau; under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
+`var.tau.0`: the variance of the estimator of &tau; undet H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
+`var.tau.general`: the variance of the estimator of &tau; in general <br>
 `z.score.fixed`: the z-score under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
 `z.score.fixed`: the z-score under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
 `p.value.fixed`: p-value under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
@@ -35,8 +35,8 @@ Conduct the two-sample test with &tau; in observational study <br>
 #### Value
 A list containing the following components <br>
 `tau`: the estimated value of &tau;<sub>b</sub> <br>
-`var.tau.random`: the variance of &tau; under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`var.tau`: the variance of &tau; in general <br>
+`var.tau.random`: the variance of the estimator of &tau; under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
+`var.tau`: the variance of the estimator of &tau; in general <br>
 `z.score.random`: the z-score under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
 `z.score.0`: the z-score under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
 `p.value.random`: p-value under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
