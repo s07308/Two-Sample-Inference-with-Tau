@@ -5,7 +5,7 @@ The R code in this repository contains three functions to do two-sample test in 
 ### tau_fixed
 
 #### Arguments
-x: a non-empty numeric vector vector of data
+x: a non-empty numeric vector vector of data <br>
 y: a non-empty numeric vector vector of data
 
 #### Value
