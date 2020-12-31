@@ -49,3 +49,7 @@ Estimate &tau;<sub>b</sub> when the observatiosn are subject to right-censoring.
 
 #### Value
 the estimaed value of &tau;<sub>b</sub> <br>
+
+## Example
+The soil water contents (% water by volume) collected from two experimental fields growing bell peppers are under comparison (Gumpertz et al., 1997).
+
