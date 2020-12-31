@@ -1,6 +1,6 @@
 # Two-Sample Test with Tau
 
-The R code in this repository contains three functions to do two-sample test in different scenarios. 
+The R code in this repository contains three functions to do two-sample test with &tau; in different scenarios. 
 
 ### tau_fixed()
 Conduct the two-sample test with &tau; in RCT. <br>
