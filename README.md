@@ -14,7 +14,7 @@ Conduct the two-sample test with tau in RCT. <br>
 #### Value
 A list containing the following components <br>
 `tau`: the estimated value of tau_b <br>
-`var.tau.fixed`: the variance of tau under H_0: F_x = F_y <br>
+`var.tau.fixed`: the variance of tau under H<sub>0</sub>: F_x = F_y <br>
 `var.tau.0`: the variance of tau undet H_0: tau_b = 0 <br>
 `var.tau.general`: the variance of tau in general <br>
 `z.score.fixed`: the z-score under H_0: F_x = F_y <br>
