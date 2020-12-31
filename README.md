@@ -6,8 +6,8 @@ The R code in this repository contains three functions to do two-sample test wit
 Conduct the two-sample test with &tau; in RCT. <br>
 
 #### Arguments
-`x`: a non-empty numeric vector vector of data <br>
-`y`: a non-empty numeric vector vector of data <br>
+`x`: a non-empty numeric vector of data <br>
+`y`: a non-empty numeric vector of data <br>
 
 #### Value
 A list containing the following components <br>
