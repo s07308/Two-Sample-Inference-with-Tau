@@ -53,3 +53,7 @@ the estimaed value of &tau;<sub>b</sub> <br>
 ## Example
 The soil water contents (% water by volume) collected from two experimental fields growing bell peppers are under comparison (Gumpertz et al., 1997).
 
+```
+tau_fixed(X1, X1)
+tau_random(X1, X2)
+```
