@@ -9,9 +9,7 @@ tau_fixed <- function(x, y, na.rm = TRUE) {
   
   MW.score <- 0
   for(i in 1:n1) {
-    for(j in 1:n0) {
-      MW.score <- MW.score + ifelse(x[i] > y[j], 1, 0) + ifelse(x[i] < y[j], -1, 0)
-    }
+    MW.score <- MW.score + sum(ifelse(x[i] > y, 1, 0) + ifelse(x[i] < y, -1, 0))
   }
   
   tau.hat <- MW.score / n1 / n0
@@ -57,9 +55,7 @@ tau_random <- function(x, y, na.rm = TRUE) {
   
   MW.score <- 0
   for(i in 1:n1) {
-    for(j in 1:n0) {
-      MW.score <- MW.score + ifelse(x[i] > y[j], 1, -1) + ifelse(x[i] < y[j], -1, 0)
-    }
+    MW.score <- MW.score + sum(ifelse(x[i] > y, 1, 0) + ifelse(x[i] < y, -1, 0))
   }
   
   tau.hat <- MW.score / n1 / n0
