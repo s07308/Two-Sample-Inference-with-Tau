@@ -48,7 +48,7 @@ An IPCW estimator of &tau;<sub>b</sub> is given when the observations are subjec
 `X1`: group indicator, coded as 0 and 1 <br>
 
 #### Value
-the estimaed value of &tau;<sub>b</sub> <br>
+the estimated value of &tau;<sub>b</sub> <br>
 
 ## Example
 #### Complete Data
