@@ -21,5 +21,26 @@ X2 <- c(12.1, 10.2, 13.6, 8.1, 13.5, 7.8, 11.8, 7.7, 8.1,
 tau_fixed(X1, X2)
 tau_random(X1, X2)
 
+#### Example: Time to infection for patients receiving Kidney Dialysis
+library(survival)
+library(boot)
 
+KD <- read.table("~/Work/TwoSample_Inference_with_Tau/data/kidney_dialysis.txt", header = TRUE)
+KD$treatment <- ifelse(KD$treatment == 1, 1, 0)
 
+ipcw.tau.boot <- function(data, indices) {
+        d <- data[indices, ]
+        tau.hat <- tau_ipcw(d$time, d$delta, d$treatment)
+        
+        return(tau.hat)
+}
+
+## bootstrap under random grouping 
+boot.random <- boot(data = KD, statistic = ipcw.tau.boot, R = 2000)
+boot.random$t0
+quantile(boot.random$t, c(0.025, 0.975))
+
+## bootstrap under fixed grouping 
+boot.fixed <- boot(data = KD, statistic = ipcw.tau.boot, strata = KD$treatment, R = 2000)
+boot.fixed$t0
+quantile(boot.fixed$t, c(0.025, 0.975))
