@@ -112,5 +112,10 @@ $ci
 ```
 
 #### Censored Data
+The dataset is obtained from the book "Survival Analysis Techniques for Censored and Truncated Data". It recoreded the time to infection for patients receiving Kidney Dialysis. <br>
 
+```
+tau_ipcw(KD$time, KD$delta, KD$treatment)
+[1] -0.4843757
+```
 
