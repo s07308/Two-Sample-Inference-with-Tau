@@ -28,6 +28,8 @@ library(boot)
 KD <- read.table("~/Work/TwoSample_Inference_with_Tau/data/kidney_dialysis.txt", header = TRUE)
 KD$treatment <- ifelse(KD$treatment == 1, 1, 0)
 
+tau_ipcw(KD$time, KD$delta, KD$treatment)
+
 ipcw.tau.boot <- function(data, indices) {
         d <- data[indices, ]
         tau.hat <- tau_ipcw(d$time, d$delta, d$treatment)
