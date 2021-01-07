@@ -16,7 +16,7 @@ A list containing the following components <br>
 `var.tau.0`: the variance of the estimator of &tau; under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
 `var.tau.general`: the variance of the estimator of &tau; in general <br>
 `z.score.fixed`: the z-score under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`z.score.fixed`: the z-score under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
+`z.score.0`: the z-score under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
 `p.value.fixed`: p-value under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
 `p.value.0`: p-value under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
 `ci`: the 95% confidence interval of &tau;<sub>b</sub> <br>
