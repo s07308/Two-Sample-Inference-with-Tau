@@ -1,4 +1,4 @@
-# Two-Sample Test with Tau
+# Two-Sample Inference with Tau
 
 The R code in this repository contains three functions to do two-sample test with &tau; in different scenarios. 
 
