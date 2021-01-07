@@ -12,9 +12,9 @@ When the group indicators are known values as in randomized clinical trials, tes
 #### Value
 A list containing the following components <br>
 `tau`: the estimated value of &tau;<sub>b</sub> <br>
-`var.tau.fixed`: the variance of the estimator of &tau; under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`var.tau.0`: the variance of the estimator of &tau; under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
-`var.tau.general`: the variance of the estimator of &tau; in general <br>
+`var.tau.fixed`: the variance of the estimator of &tau;<sub>b</sub> under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
+`var.tau.0`: the variance of the estimator of &tau;<sub>b</sub> under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
+`var.tau.general`: the variance of the estimator of &tau;<sub>b</sub> in general <br>
 `z.score.fixed`: the z-score under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
 `z.score.0`: the z-score under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
 `p.value.fixed`: p-value under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
@@ -31,8 +31,8 @@ When the group indicators are known values as in observational surveys, testing 
 #### Value
 A list containing the following components <br>
 `tau`: the estimated value of &tau;<sub>b</sub> <br>
-`var.tau.random`: the variance of the estimator of &tau; under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
-`var.tau`: the variance of the estimator of &tau; in general <br>
+`var.tau.random`: the variance of the estimator of &tau;<sub>b</sub> under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
+`var.tau`: the variance of the estimator of &tau;<sub>b</sub> in general <br>
 `z.score.random`: the z-score under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
 `z.score.0`: the z-score under H<sub>0</sub>: &tau;<sub>b</sub> = 0 <br>
 `p.value.random`: p-value under H<sub>0</sub>: F<sub>x</sub> = F<sub>y</sub> <br>
