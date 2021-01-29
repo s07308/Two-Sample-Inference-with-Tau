@@ -50,6 +50,19 @@ An IPCW estimator of &tau;<sub>b</sub> is given when the observations are subjec
 #### Value
 the estimated value of &tau;<sub>b</sub> <br>
 
+### tau_ipcw2()
+When the upper bound of the support of censoring variable is shorter than the variable of interest, the estimate of &tau;<sub>b</sub> with imputed association pattern in unidentifiable region is provided. Several parametric distributions are used. <br>
+
+#### Arguments
+`Y1`: follow-up time <br>
+`delta`: the status indicator. Typically, 0: censored, 1: died <br>
+`X1`: group indicator, coded as 0 and 1 <br>
+`t.star`: a pre-specified value set the identifiable region <br>
+`tail.dist`: several options are provided, including "exp", "weibull", "lnorm" and "logis" <br>
+
+#### Value
+the estimated value of &tau;<sub>b</sub> with imputed tail <br>
+
 ## Example
 #### Complete Data
 The soil water contents (% water by volume) collected from two experimental fields growing bell peppers are under comparison (Gumpertz et al., 1997).
