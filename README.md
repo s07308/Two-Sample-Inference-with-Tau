@@ -61,7 +61,7 @@ When the upper bound of the support of censoring variable is shorter than the va
 `tail.dist`: several options are provided, including "exp", "weibull", "lnorm" and "logis" <br>
 
 #### Value
-the estimated value of &tau;<sub>b</sub> with imputed tail <br>
+the normalized estimated value of &tau;<sub>b</sub> with imputed tail <br>
 
 ## Example
 #### Complete Data
