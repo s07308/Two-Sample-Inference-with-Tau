@@ -136,3 +136,120 @@ tau_ipcw <- function(Y1, delta, X1) {
   
   return((c.hat - d.hat) / n0 / n1)
 }
+
+tau_ipcw_res <- function(Y1, delta, X1, t.star) {
+  obs.0 <- Y1[X1 == 0]
+  obs.1 <- Y1[X1 == 1]
+  delta.0 <- delta[X1 == 0]
+  delta.1 <- delta[X1 == 1]
+  n0 <- sum(1 - X1)
+  n1 <- sum(X1)
+  
+  order.matrix <- ifelse(sapply(obs.1, ">", obs.0), 1, -1)
+  delta0.matrix <- matrix(rep(delta.0, n1), ncol = n1)
+  delta1.matrix <- matrix(rep(delta.1, n0), ncol = n1, byrow = TRUE)
+  orderable <- ifelse(sapply(obs.1, ">", obs.0), delta0.matrix, delta1.matrix)
+  
+  Y0.matrix <- matrix(rep(obs.0, n1), ncol = n1)
+  Y1.matrix <- matrix(rep(obs.1, n0), ncol = n1, byrow = TRUE)
+  Y.min <- ifelse(sapply(obs.1, ">", obs.0), Y0.matrix, Y1.matrix)
+  
+  G.fit <- survfit(Surv(time = Y1, event = 1 - delta) ~ 1)
+  G_func <- stepfun(x = G.fit$time, y = c(1, G.fit$surv))
+  G <- matrix(G_func(Y.min), ncol = ncol(Y.min))
+  
+  tau.res <- sum(ifelse(Y.min <= t.star, order.matrix, 0) * orderable * G ^ (-2), na.rm = TRUE) / n0 / n1
+  tau.res.rewei <- tau.res * n0 * n1 / sum(ifelse(Y.min <= t.star, abs(order.matrix), 0) * orderable * G ^ (-2), na.rm = TRUE)
+  
+  return(list(tau.res = tau.res,
+              tau.res.rewei = tau.res.rewei))
+}
+
+tail_est <- function(Y1, delta, X1, t.star, tail.dist) {
+  ## tail estimation
+  
+  if(tail.dist == "exp") {
+    exp.fit <- fit_data(data.frame(time = Y1, censor = delta, X1), dist = "exp", by = "X1")
+    rate.0.est <- exp.fit[[1]]$estimate
+    rate.1.est <- exp.fit[[2]]$estimate
+    
+    fc.est <- function(t) return((1 - pexp(t, rate = rate.1.est)) * dexp(t, rate = rate.0.est))
+    fd.est <- function(t) return((1 - pexp(t, rate = rate.0.est)) * dexp(t, rate = rate.1.est))
+    
+    S1 <- 1 - pexp(t.star, rate.1.est)
+    S0 <- 1 - pexp(t.star, rate.0.est)
+  }
+  
+  if(tail.dist == "weibull") {
+    weibull.fit <- fit_data(data.frame(time = Y1, censor = delta, X1), dist = "weibull", by = "X1")
+    param.0.est <- weibull.fit[[1]]$estimate
+    param.1.est <- weibull.fit[[2]]$estimate
+    
+    fc.est <- function(t) {
+      f <- dweibull(t, shape = param.0.est["shape"], scale = param.0.est["scale"])
+      S <- 1 - pweibull(t, shape = param.1.est["shape"], scale = param.1.est["scale"])
+      return(S * f)
+    }
+    
+    fd.est <- function(t) {
+      f <- dweibull(t, shape = param.1.est["shape"], scale = param.1.est["scale"])
+      S <- 1 - pweibull(t, shape = param.0.est["shape"], scale = param.0.est["scale"])
+      
+      return(S * f)
+    }
+    
+    S1 <- 1 - pweibull(t.star, shape = param.1.est["shape"], scale = param.1.est["scale"])
+    S0 <- 1 - pweibull(t.star, shape = param.0.est["shape"], scale = param.0.est["scale"])
+  }
+  
+  if(tail.dist == "lnorm") {
+    lnorm.fit <- fit_data(data.frame(time = Y1, censor = delta, X1), dist = "lnorm", by = "X1")
+    param.0.est <- lnorm.fit[[1]]$estimate
+    param.1.est <- lnorm.fit[[2]]$estimate
+    
+    fc.est <- function(t) {
+      f <- dlnorm(t, meanlog = param.0.est["meanlog"], sdlog = param.0.est["sdlog"])
+      S <- 1 - plnorm(t, meanlog = param.1.est["meanlog"], sdlog = param.1.est["sdlog"])
+      return(S * f)
+    }
+    
+    fd.est <- function(t) {
+      f <- dlnorm(t, meanlog = param.1.est["meanlog"], sdlog = param.1.est["sdlog"])
+      S <- 1 - plnorm(t, meanlog = param.0.est["meanlog"], sdlog = param.0.est["sdlog"])
+      
+      return(S * f)
+    }
+    
+    S1 <- 1 - plnorm(t.star, meanlog = param.1.est["meanlog"], sdlog = param.1.est["sdlog"])
+    S0 <- 1 - plnorm(t.star, meanlog = param.0.est["meanlog"], sdlog = param.0.est["sdlog"])
+  }
+  
+  if(tail.dist == "logis") {
+    logis.fit <- fit_data(data.frame(time = Y1, censor = delta, X1), dist = "logis", by = "X1")
+    param.0.est <- logis.fit[[1]]$estimate
+    param.1.est <- logis.fit[[2]]$estimate
+    
+    fc.est <- function(t) {
+      f <- dlogis(t, location = param.0.est["location"], scale = param.0.est["scale"])
+      S <- 1 - plogis(t, location = param.1.est["location"], scale = param.1.est["scale"])
+      return(S * f)
+    }
+    
+    fd.est <- function(t) {
+      f <- dlogis(t, location = param.1.est["location"], scale = param.1.est["scale"])
+      S <- 1 - plogis(t, location = param.0.est["location"], scale = param.0.est["scale"])
+      
+      return(S * f)
+    }
+    
+    S1 <- 1 - plogis(t.star, location = param.1.est["location"], scale = param.1.est["scale"])
+    S0 <- 1 - plogis(t.star, location = param.0.est["location"], scale = param.0.est["scale"])
+  }
+  
+  head.prob <- 1 - S1 * S0
+  tail.b.est <- integrate(fc.est, lower = t.star, upper = Inf)$value - integrate(fd.est, lower = t.star, upper = Inf)$value
+  
+  return(list(tail.b.est = tail.b.est,
+              head.prob = head.prob))
+}
+
