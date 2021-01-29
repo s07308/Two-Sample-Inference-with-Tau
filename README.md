@@ -63,9 +63,6 @@ When the upper bound of the support of censoring variable is shorter than the va
 #### Value
 the estimated value of &tau;<sub>b</sub> with imputed tail <br>
 
-## Remark
-The dependency packages include `survival`, `parmsurvfit`.
-
 ## Example
 #### Complete Data
 The soil water contents (% water by volume) collected from two experimental fields growing bell peppers are under comparison (Gumpertz et al., 1997).
@@ -135,3 +132,5 @@ tau_ipcw(KD$time, KD$delta, KD$treatment)
 [1] -0.4843757
 ```
 
+## Remark
+The dependency packages include `survival`, `parmsurvfit`.
