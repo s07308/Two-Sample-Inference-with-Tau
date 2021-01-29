@@ -57,7 +57,7 @@ When the upper bound of the support of censoring variable is shorter than the va
 `Y1`: follow-up time <br>
 `delta`: the status indicator. Typically, 0: censored, 1: died <br>
 `X1`: group indicator, coded as 0 and 1 <br>
-`t.star`: a pre-specified value set the identifiable region <br>
+`t.star`: a pre-specified value sets the identifiable region <br>
 `tail.dist`: several options are provided, including "exp", "weibull", "lnorm" and "logis" <br>
 
 #### Value
