@@ -132,5 +132,10 @@ tau_ipcw(KD$time, KD$delta, KD$treatment)
 [1] -0.4843757
 ```
 
+```
+tau_ipcw(KD$time, KD$delta, KD$treatment, max(KD$time), "exp")
+[1] -0.5616967
+```
+
 ## Remark
 The dependency packages include `survival`, `parmsurvfit`.
