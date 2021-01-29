@@ -253,3 +253,9 @@ tail_est <- function(Y1, delta, X1, t.star, tail.dist) {
               head.prob = head.prob))
 }
 
+tau_ipcw2 <- function(Y1, delta, X1, t.star, tail.dist) {
+  tau.rewei <- tau_ipcw_res(Y1, delta, X1, t.star)$tau.res.rewei
+  tail.result <- tail_est(Y1, delta, X1, t.star, tail.dist)
+  
+  return(tau.rewei * tail.result$head.prob + tail.result$tail.b.est)
+}
