@@ -23,13 +23,16 @@ tau_random(X1, X2)
 
 #### Example: Time to infection for patients receiving Kidney Dialysis
 library(survival)
-library(boot)
+library(parmsurvfit)
 
 KD <- read.table("~/Work/TwoSample_Inference_with_Tau/data/kidney_dialysis.txt", header = TRUE)
 KD$treatment <- ifelse(KD$treatment == 1, 1, 0)
 
 tau_ipcw(KD$time, KD$delta, KD$treatment)
+tau_ipcw2(KD$time, KD$delta, KD$treatment, max(KD$time), "exp")
 
+## bootstrap 
+library(boot)
 ipcw.tau.boot <- function(data, indices) {
         d <- data[indices, ]
         tau.hat <- tau_ipcw(d$time, d$delta, d$treatment)
