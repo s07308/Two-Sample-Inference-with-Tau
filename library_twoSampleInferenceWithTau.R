@@ -1,4 +1,5 @@
 tau.bar_func <- function(X, observed.time) {
+  n <- length(observed.time)
   N0 <- sum(X == 0)
   N1 <- sum(X == 1)
   observed.time.0 <- observed.time[X == 0]
@@ -18,7 +19,7 @@ tau.bar_func <- function(X, observed.time) {
   ## varinace estimates under null
   p1.est <- mean(X)
   p0.est <- 1 - p1.est
-  var.null.0 <- 1 / (3 * p0.est * p1.est)
+  var.null.0 <- 1 / (3 * n * p0.est * p1.est)
   var.null.tau <- tau.bar.var.random(X = X, observed.time = observed.time, tau.bar.b = 0)
   
   ## confidence interval
@@ -113,7 +114,7 @@ tau.hat_func <- function(X, observed.time, delta) {
   z.val.tau <- tau.hat / sqrt(var.null.tau)
   
   ## p-value
-  p.val.tau <- 1 -pchisq(z.val.tau ^ 2, df = 1)
+  p.val.tau <- 1 - pchisq(z.val.tau ^ 2, df = 1)
   
   return(list(tau.hat = tau.hat,
               U = sum(U),
@@ -150,7 +151,7 @@ imputed.tau.hat_func <- function(X, observed.time, delta, t.star) {
   }
   
   tail.est <- integrate(fc.est, lower = t.star, upper = Inf)$value - integrate(fd.est, lower = t.star, upper = Inf)$value
-  imputed.tau.hat.weibull <- restricted.tau.hat + tail.est
+  imputed.tau.hat.weibull <- restricted.tau.hat$tau.hat + tail.est
   
   ## exponential
   ## estimation distribution (Exponential)
@@ -163,7 +164,7 @@ imputed.tau.hat_func <- function(X, observed.time, delta, t.star) {
   fd.est <- function(t) return((1 - pexp(t, rate = rate.0.est)) * dexp(t, rate = rate.1.est))
   
   tail.est <- integrate(fc.est, lower = t.star, upper = Inf)$value - integrate(fd.est, lower = t.star, upper = Inf)$value
-  imputed.tau.hat.exp <- restricted.tau.hat + tail.est
+  imputed.tau.hat.exp <- restricted.tau.hat$tau.hat + tail.est
   
   ## log-normal
   ## estimation distribution (log-normal)
@@ -186,7 +187,7 @@ imputed.tau.hat_func <- function(X, observed.time, delta, t.star) {
   }
   
   tail.est <- integrate(fc.est, lower = t.star, upper = Inf)$value - integrate(fd.est, lower = t.star, upper = Inf)$value
-  imputed.tau.hat.lnorm <- restricted.tau.hat + tail.est
+  imputed.tau.hat.lnorm <- restricted.tau.hat$tau.hat + tail.est
   
   ## logistic
   ## estimation distribution (logistic)
@@ -209,7 +210,7 @@ imputed.tau.hat_func <- function(X, observed.time, delta, t.star) {
   }
   
   tail.est <- integrate(fc.est, lower = t.star, upper = Inf)$value - integrate(fd.est, lower = t.star, upper = Inf)$value
-  imputed.tau.hat.logis <- restricted.tau.hat + tail.est
+  imputed.tau.hat.logis <- restricted.tau.hat$tau.hat + tail.est
   
   return(list(weibull = imputed.tau.hat.weibull,
               exp = imputed.tau.hat.exp,
