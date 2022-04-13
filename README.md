@@ -65,32 +65,7 @@ The soil water contents (% water by volume) collected from two experimental fiel
 
 ```
 tau.bar_func(X = group, observed.time = obs)
-$tau
-[1] 0.1901042
 
-$var.tau.fixed
-[1] 0.008854167
-
-$var.tau.0
-[1] 0.008928687
-
-$var.tau.general
-[1] 0.008922413
-
-$z.score.fixed
-[1] 2.020309
-
-$z.score.0
-[1] 2.01186
-
-$p.value.fixed
-[1] 0.02167568
-
-$p.value.0
-[1] 0.02211733
-
-$ci
-[1] 0.004968861 0.375239472
 ```
 
 #### Censored Data
