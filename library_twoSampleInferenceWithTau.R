@@ -47,6 +47,7 @@ tau.bar_func <- function(X, observed.time) {
 }
 
 tau.hat_func <- function(X, observed.time, delta) {
+  n <- length(observed.time)
   N0 <- sum(X == 0)
   N1 <- sum(X == 1)
   observed.time.0 <- observed.time[X == 0]
@@ -94,15 +95,15 @@ tau.hat_func <- function(X, observed.time, delta) {
   var.1.random <- tau.hat.var1.random(X = X, observed.time = observed.time, delta = delta, tau.hat = tau.hat)
   var.2.random <- tau.hat.var2.random(X = X, observed.time = observed.time, delta = delta)
   var.3.random <- tau.hat.var3.random(X = X, observed.time = observed.time, delta = delta, tau.hat = tau.hat)
-  var.random <- var.3.random - var.2.random - var.1.random
+  var.random <- (var.3.random - var.2.random - var.1.random) / n
   
   var.2.fixed <- tau.hat.var2.fixed(X = X, observed.time = observed.time, delta = delta)
   var.3.fixed <- tau.hat.var3.fixed(X = X, observed.time = observed.time, delta = delta, tau.hat = tau.hat)
-  var.fixed <- var.3.fixed - var.2.fixed
+  var.fixed <- (var.3.fixed - var.2.fixed) / n
   
   ## variance estimates under null
   var.3.null.tau <- tau.hat.var3.random(X = X, observed.time = observed.time, delta = delta, tau.hat = 0)
-  var.null.tau <- var.3.null.tau - var.2.random
+  var.null.tau <- (var.3.null.tau - var.2.random) / n
   
   ## confidence interval
   ci.fixed <- tau.hat + qnorm(c(0.025, 0.975)) * sqrt(var.fixed)
@@ -118,6 +119,7 @@ tau.hat_func <- function(X, observed.time, delta) {
               U = sum(U),
               var.fixed = var.fixed,
               var.random = var.random,
+              var.null.tau = var.null.tau,
               ci.fixed = ci.fixed,
               ci.random = ci.random,
               z.val.tau = z.val.tau,
