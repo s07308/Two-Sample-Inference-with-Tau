@@ -65,21 +65,48 @@ The soil water contents (% water by volume) collected from two experimental fiel
 
 ```
 tau.bar_func(X = group, observed.time = obs)
+$tau.bar
+[1] 0.1901042
 
+$var.fixed
+[1] 0.0087689
+
+$var.random
+[1] 0.0087689
+
+$var.null.0
+[1] 0.008796296
+
+$var.null.tau
+[1] 0.009722584
+
+$ci.fixed
+[1] 0.006568424 0.373639910
+
+$ci.random
+[1] 0.006568424 0.373639910
+
+$z.val.0
+[1] 2.026944
+
+$z.val.tau
+[1] 1.927972
+
+$p.val.0
+[1] 0.04266816
+
+$p.val.tau
+[1] 0.05385857
 ```
 
 #### Censored Data
 The dataset is obtained from the book "Survival Analysis Techniques for Censored and Truncated Data" (Klein, John P., Moeschberger, Melvin L., 2003). It recoreded the time to infection for patients receiving Kidney Dialysis. <br>
 
 ```
-tau_ipcw(KD$time, KD$delta, KD$treatment)
-[1] -0.4843757
-```
 
 ```
-tau_ipcw(KD$time, KD$delta, KD$treatment, max(KD$time), "exp")
-[1] -0.5616967
-```
+
+
 
 ## Remark
 The dependency packages include `survival`, `parmsurvfit`.
