@@ -64,7 +64,7 @@ A list containing the following components <br>
 The soil water contents (% water by volume) collected from two experimental fields growing bell peppers are under comparison (Gumpertz et al., 1997).
 
 ```
-tau_fixed(X1, X2)
+tau.bar_func(X = group, observed.time = obs)
 $tau
 [1] 0.1901042
 
@@ -91,33 +91,6 @@ $p.value.0
 
 $ci
 [1] 0.004968861 0.375239472
-```
-
-```
-tau_random(X1, X2)
-$tau
-[1] 0.1901042
-
-$var.tau.random
-[1] 0.008796296
-
-$var.tau
-[1] 0.008829632
-
-$z.score.random
-[1] 2.026944
-
-$z.score.0
-[1] 2.023114
-
-$p.value.random
-[1] 0.02133408
-
-$p.value.0
-[1] 0.0215307
-
-$ci
-[1] 0.005933956 0.374274377
 ```
 
 #### Censored Data
