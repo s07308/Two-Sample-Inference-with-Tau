@@ -103,10 +103,49 @@ $p.val.tau
 The dataset is obtained from the book "Survival Analysis Techniques for Censored and Truncated Data" (Klein, John P., Moeschberger, Melvin L., 2003). It recoreded the time to infection for patients receiving Kidney Dialysis. <br>
 
 ```
+tau.hat_func(X = KD$treatment, observed.time = KD$time, delta = KD$delta)
+$tau.hat
+[1] -0.4437778
 
+$U
+[1] -1450.266
+
+$var.fixed
+[1] 0.1051801
+
+$var.random
+[1] 0.1237697
+
+$var.null.tau
+[1] 0.130941
+
+$ci.fixed
+[1] -1.0794231  0.1918676
+
+$ci.random
+[1] -1.1333112  0.2457556
+
+$z.val.tau
+[1] -1.226388
+
+$p.val.tau
+[1] 0.2200529
 ```
 
+```
+imputed.tau.hat_func(X = KD$treatment, observed.time = KD$time, delta = KD$delta, t.star = max(KD$time))
+$weibull
+[1] -0.6192046
 
+$exp
+[1] -0.5082488
+
+$lnorm
+[1] -0.6497025
+
+$logis
+[1] -0.483848
+```
 
 ## Remark
 The dependency packages include `survival`, `parmsurvfit`.
