@@ -272,6 +272,7 @@ tau.hat.var1.random <- function(X, observed.time, delta, tau.hat) {
 }
 
 tau.hat.var2.random <- function(X, observed.time, delta) {
+  n <- length(observed.time)
   N0 <- sum(X == 0)
   N1 <- sum(X == 1)
   observed.time.0 <- observed.time[X == 0]
@@ -331,7 +332,7 @@ tau.hat.var2.random <- function(X, observed.time, delta) {
 }
 
 tau.hat.var3.random <- function(X, observed.time, delta, tau.hat) {
-  n <- length(X)
+  n <- length(observed.time)
   N0 <- sum(X == 0)
   N1 <- sum(X == 1)
   observed.time.0 <- observed.time[X == 0]
