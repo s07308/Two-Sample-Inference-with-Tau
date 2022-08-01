@@ -1,24 +1,6 @@
 # Two-Sample Inference with Tau
 
-The R code in this repository is used to implement the inference procedures based on Kendall’s tau (&tau;<sub>b</sub>) between a binary group indicator and a continuous variable which may be subject to right-censoring. The methods are proposed by Yi-Cheng Tai, Weijing Wang and Martin T. Wells and will be submitted for publication. <br> 
-
-@misc{https://doi.org/10.48550/arxiv.2207.14445,
-  doi = {10.48550/ARXIV.2207.14445},
-  
-  url = {https://arxiv.org/abs/2207.14445},
-  
-  author = {Tai, Yi-Cheng and Wang, Weijing and Wells, Martin T.},
-  
-  keywords = {Methodology (stat.ME), Applications (stat.AP), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  
-  title = {Kendall's Tau for Two-Sample Inference Problems},
-  
-  publisher = {arXiv},
-  
-  year = {2022},
-  
-  copyright = {Creative Commons Attribution 4.0 International}
-}
+The R code in this repository is used to implement the inference procedures based on Kendall’s tau (&tau;<sub>b</sub>) between a binary group indicator and a continuous variable which may be subject to right-censoring. The methods are proposed by Yi-Cheng Tai, Weijing Wang and Martin T. Wells and will be submitted for publication. <br> Tai, Y.C., Wang, W., & Wells, M.. (2022). Kendall's Tau for Two-Sample Inference Problems. https://arxiv.org/abs/2207.14445 <br>
 
 ### tau.bar_func()
 When the observed failure times do not subject to censoring, testing results for H<sub>0</sub>: S<sub>0</sub> = S<sub>1</sub> <br> and H<sub>0</sub>: &tau;<sub>b</sub> = 0 and confidence intervals of &tau;<sub>b</sub> are given. <br>
