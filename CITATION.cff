@@ -1,0 +1,13 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Tai"
+  given-names: "Yi-Cheng"
+- family-names: "Wang"
+  given-names: "Weijing"
+- family-names: "Wells"
+  given-names: "Martin"
+title: "Two-Sample-Inference-with-Tau"
+version: 1.0.0
+date-released: 2022-08-01
+url: "https://github.com/s07308/Two-Sample-Inference-with-Tau"
